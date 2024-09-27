@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post, Request, Session } from '@nestjs/common';
 import { MovieService } from './movie.service';
-import { CreateMovieDto } from './createMovie.dto';
+import { SaveMovieRequestDto } from './dto/save-movie-request.dto';
 import { FormDataRequest } from 'nestjs-form-data';
 
 @Controller('movie')
@@ -24,8 +24,8 @@ export class MovieController {
 
     @Post("save")
     @FormDataRequest()
-    SaveMovie(@Body() createMovieDto: CreateMovieDto, @Session() session) {
-        console.log(session);
-        return this.movieService.saveMovie(createMovieDto.id);
+    SaveMovie(@Body() saveMovieDto: SaveMovieRequestDto, @Session() session) {
+        //return this.movieService.saveMovie(saveMovieDto.id);
+        return
     }
 }
