@@ -17,8 +17,8 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async createUser(user: IUser) {
-    this.userService.create(user);
+  async createUser(email: string, password: string) {
+    this.userService.create(email, password);
   }
 
   async login(email: string, password: string, session: any) {

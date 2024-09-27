@@ -1,0 +1,78 @@
+[
+  {
+    "_id": 28,
+    "name": "Action"
+  },
+  {
+    "_id": 12,
+    "name": "Aventure"
+  },
+  {
+    "_id": 16,
+    "name": "Animation"
+  },
+  {
+    "_id": 35,
+    "name": "Comédie"
+  },
+  {
+    "_id": 80,
+    "name": "Crime"
+  },
+  {
+    "_id": 99,
+    "name": "Documentaire"
+  },
+  {
+    "_id": 18,
+    "name": "Drame"
+  },
+  {
+    "_id": 10751,
+    "name": "Familial"
+  },
+  {
+    "_id": 14,
+    "name": "Fantastique"
+  },
+  {
+    "_id": 36,
+    "name": "Histoire"
+  },
+  {
+    "_id": 27,
+    "name": "Horreur"
+  },
+  {
+    "_id": 10402,
+    "name": "Musique"
+  },
+  {
+    "_id": 9648,
+    "name": "Mystère"
+  },
+  {
+    "_id": 10749,
+    "name": "Romance"
+  },
+  {
+    "_id": 878,
+    "name": "Science-Fiction"
+  },
+  {
+    "_id": 10770,
+    "name": "Téléfilm"
+  },
+  {
+    "_id": 53,
+    "name": "Thriller"
+  },
+  {
+    "_id": 10752,
+    "name": "Guerre"
+  },
+  {
+    "_id": 37,
+    "name": "Western"
+  }
+]

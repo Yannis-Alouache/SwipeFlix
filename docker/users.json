@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "66cad648c197412ef8b5001b"
+  },
+  "email": "yannisalouache@gmail.com",
+  "password": "$2b$10$zm6M2.fBsYetY0bs/2o0GesHhDu4GMJawe6m8xycBS8wIcdZTzh12",
+  "moviesLiked": [],
+  "__v": 0
+}]

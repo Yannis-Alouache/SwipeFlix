@@ -1,0 +1,13 @@
+FROM mongo:latest
+
+RUN mkdir -p /data/db
+
+# Copier les fichiers JSON dans l'image
+COPY ./moviegenres.json /data/moviegenres.json
+COPY ./users.json /data/users.json
+
+# Lancer MongoDB et insérer les données JSON dans deux collections
+CMD ["bash", "-c", "mongod --fork --logpath /var/log/mongodb.log --bind_ip_all && \
+    mongoimport --db SwipeFlixBdd --collection moviegenres --file /data/moviegenres.json --jsonArray && \
+    mongoimport --db SwipeFlixBdd --collection users --file /data/users.json --jsonArray && \
+    tail -f /dev/null"]

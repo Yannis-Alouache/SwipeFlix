@@ -37,5 +37,6 @@ async function bootstrap() {
   // TODO Add movie directly in fav without going through the swipe
   // TODO Add swipe history in user profile
   await app.listen(3000);
+  console.log("🚀 server started on port 3000");
 }
 bootstrap();

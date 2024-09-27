@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { NoFilesInterceptor } from '@nestjs/platform-express';
+import { RegisterRequestDto } from './dto/register-request.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -18,8 +19,12 @@ export class AuthController {
   @Post('register')
   @Redirect('/auth/login')
   @UseInterceptors(NoFilesInterceptor())
-  async registerPost(@Body() body) {
-    this.authService.createUser(body);
+  async registerPost(@Body() body: RegisterRequestDto) {
+    console.log(body);
+    this.authService.createUser(
+      body.email,
+      body.password,
+    );
   }
 
   @Get('register')

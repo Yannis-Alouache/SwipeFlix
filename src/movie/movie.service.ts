@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Movie } from 'src/schemas/movie.schema';
 import { MovieGenre } from 'src/schemas/movieGenre.schema';
 const fetch = require('node-fetch');
 
@@ -9,7 +8,6 @@ const fetch = require('node-fetch');
 export class MovieService {
   constructor(
     @InjectModel('MovieGenre') private movieGenreModel: Model<MovieGenre>,
-    @InjectModel('Movie') private movieModel: Model<Movie>,
   ) {}
 
   async getRandomMovie() {
