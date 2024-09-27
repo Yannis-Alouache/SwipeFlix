@@ -11,6 +11,7 @@ import {
 import { AuthService } from './auth.service';
 import { NoFilesInterceptor } from '@nestjs/platform-express';
 import { RegisterRequestDto } from './dto/register-request.dto';
+import { LoginRequestDto } from './dto/login-request.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -18,7 +19,6 @@ export class AuthController {
 
   @Post('register')
   @Redirect('/auth/login')
-  @UseInterceptors(NoFilesInterceptor())
   async registerPost(@Body() body: RegisterRequestDto) {
     console.log(body);
     this.authService.createUser(
@@ -37,7 +37,8 @@ export class AuthController {
 
   @Redirect('/')
   @Post('login')
-  async loginPost(@Body() body, @Session() session) {
+  async loginPost(@Body() body: LoginRequestDto, @Session() session) {
+    console.log(body);
     return this.authService.login(body.email, body.password, session);
   }
 
