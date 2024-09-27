@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { AuthController } from './auth.controller';
-import { JwtModule } from '@nestjs/jwt';
-import { AuthService } from './auth.service';
-import { UserModule } from 'src/user/user.module';
-import { UserService } from 'src/user/user.service';
+import { Module } from "@nestjs/common";
+import { AuthController } from "./auth.controller";
+import { JwtModule } from "@nestjs/jwt";
+import { AuthService } from "./auth.service";
+import { UserModule } from "src/user/user.module";
+import { UserService } from "src/user/user.service";
 
 @Module({
   exports: [],
@@ -12,7 +12,7 @@ import { UserService } from 'src/user/user.service';
     JwtModule.register({
       global: true,
       secret: `${process.env.JWT_SECRET}`,
-      signOptions: { expiresIn: '7 days' },
+      signOptions: { expiresIn: "7 days" },
     }),
     UserModule,
   ],
