@@ -1,11 +1,7 @@
 import {
-  Body,
   Injectable,
-  Req,
-  Session,
   UnauthorizedException,
 } from '@nestjs/common';
-import { IUser } from 'src/interfaces/user.interface';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from 'src/user/user.service';
 import * as bcrypt from 'bcrypt';

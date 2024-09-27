@@ -6,10 +6,8 @@ import {
   Redirect,
   Render,
   Session,
-  UseInterceptors,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { NoFilesInterceptor } from '@nestjs/platform-express';
 import { RegisterRequestDto } from './dto/register-request.dto';
 import { LoginRequestDto } from './dto/login-request.dto';
 
@@ -29,11 +27,11 @@ export class AuthController {
 
   @Get('register')
   @Render('register')
-  async registerGet(@Body() req) {}
+  async registerGet() {}
 
   @Get('login')
   @Render('login')
-  async loginGet(@Body() req) {}
+  async loginGet() {}
 
   @Redirect('/')
   @Post('login')

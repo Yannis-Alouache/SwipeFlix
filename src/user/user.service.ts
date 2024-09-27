@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { IUser } from 'src/interfaces/user.interface';
 import { User } from 'src/schemas/user.schema';
 import * as bcrypt from 'bcrypt';
 

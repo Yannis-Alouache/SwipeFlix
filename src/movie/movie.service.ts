@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { MovieGenre } from 'src/schemas/movieGenre.schema';
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
 @Injectable()
 export class MovieService {
