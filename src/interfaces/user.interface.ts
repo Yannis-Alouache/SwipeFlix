@@ -1,4 +1,4 @@
-import { Movie } from 'src/schemas/movie.schema';
+import { Movie } from "src/schemas/movie.schema";
 
 export interface IUser extends Document {
   readonly email: string;

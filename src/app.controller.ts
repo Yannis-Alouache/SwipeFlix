@@ -1,13 +1,13 @@
-import { Controller, Get, Render, Request, UseGuards } from '@nestjs/common';
-import { AppService } from './app.service';
-import { AuthGuard } from './auth/auth.guard';
+import { Controller, Get, Render, Request, UseGuards } from "@nestjs/common";
+import { AppService } from "./app.service";
+import { AuthGuard } from "./auth/auth.guard";
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @Render('index')
+  @Render("index")
   getHome(@Request() req) {
     const isAuthenticated = !!req.user;
 
@@ -17,7 +17,7 @@ export class AppController {
   }
 
   @UseGuards(AuthGuard)
-  @Get('profile')
+  @Get("profile")
   getProfile(@Request() req) {
     return req.user;
   }

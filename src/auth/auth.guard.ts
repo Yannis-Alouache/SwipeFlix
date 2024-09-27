@@ -3,9 +3,9 @@ import {
   ExecutionContext,
   Injectable,
   UnauthorizedException,
-} from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
-import { Request } from 'express';
+} from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt";
+import { Request } from "express";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -21,16 +21,16 @@ export class AuthGuard implements CanActivate {
       const payload = await this.jwtService.verifyAsync(token, {
         secret: process.env.JWT_SECRET,
       });
-      request['user'] = payload;
+      request["user"] = payload;
     } catch (error) {
-      console.error('JWT verification error:', error);
-      throw new UnauthorizedException('Invalid token');
+      console.error("JWT verification error:", error);
+      throw new UnauthorizedException("Invalid token");
     }
     return true;
   }
 
   private extractTokenFromSession(request: Request): string | undefined {
-    const token = request.session['accessToken'];
+    const token = request.session["accessToken"];
     return token;
   }
 }

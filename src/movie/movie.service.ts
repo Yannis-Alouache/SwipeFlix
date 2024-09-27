@@ -1,28 +1,27 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { MovieGenre } from 'src/schemas/movieGenre.schema';
-import fetch from 'node-fetch';
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
+import { MovieGenre } from "src/schemas/movieGenre.schema";
+import fetch from "node-fetch";
 
 @Injectable()
 export class MovieService {
   constructor(
-    @InjectModel('MovieGenre') private movieGenreModel: Model<MovieGenre>,
+    @InjectModel("MovieGenre") private movieGenreModel: Model<MovieGenre>,
   ) {}
 
   async getRandomMovie() {
     // 500 pages
     const pageNumber = Math.floor(Math.random() * 500) + 1;
 
-    const url =
-      `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=fr&page=${pageNumber}&sort_by=popularity.desc`;
+    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=fr&page=${pageNumber}&sort_by=popularity.desc`;
     const imageApiUrl = "https://image.tmdb.org/t/p/w500";
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: {
-        accept: 'application/json',
+        accept: "application/json",
         Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODYxNDBjZWU0OGExZDc3ZWNkOWNlNDkxY2IyZGE0YyIsIm5iZiI6MTcyNDc0NDA5My40NzI1MTUsInN1YiI6IjY2Y2Q4MDkwMTM0NTVjZGRmYWM0MjI2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K9BBZDITAueyqVDGAPt7EX0ICSX_ZT7rJmkd8NJ8uaU',
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODYxNDBjZWU0OGExZDc3ZWNkOWNlNDkxY2IyZGE0YyIsIm5iZiI6MTcyNDc0NDA5My40NzI1MTUsInN1YiI6IjY2Y2Q4MDkwMTM0NTVjZGRmYWM0MjI2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K9BBZDITAueyqVDGAPt7EX0ICSX_ZT7rJmkd8NJ8uaU",
       },
     };
 
@@ -42,15 +41,14 @@ export class MovieService {
     // 500 pages
     const pageNumber = Math.floor(Math.random() * 500) + 1;
 
-    const url =
-      `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=fr&page=${pageNumber}&sort_by=popularity.desc&with_genres=${id}`;
+    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=fr&page=${pageNumber}&sort_by=popularity.desc&with_genres=${id}`;
     const imageApiUrl = "https://image.tmdb.org/t/p/w500";
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: {
-        accept: 'application/json',
+        accept: "application/json",
         Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODYxNDBjZWU0OGExZDc3ZWNkOWNlNDkxY2IyZGE0YyIsIm5iZiI6MTcyNDc0NDA5My40NzI1MTUsInN1YiI6IjY2Y2Q4MDkwMTM0NTVjZGRmYWM0MjI2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K9BBZDITAueyqVDGAPt7EX0ICSX_ZT7rJmkd8NJ8uaU',
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODYxNDBjZWU0OGExZDc3ZWNkOWNlNDkxY2IyZGE0YyIsIm5iZiI6MTcyNDc0NDA5My40NzI1MTUsInN1YiI6IjY2Y2Q4MDkwMTM0NTVjZGRmYWM0MjI2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K9BBZDITAueyqVDGAPt7EX0ICSX_ZT7rJmkd8NJ8uaU",
       },
     };
 
@@ -62,9 +60,9 @@ export class MovieService {
 
     const tmp = data.results[movieNumber].poster_path;
     if (tmp === null)
-      data.results[movieNumber].poster_path = "https://cringemdb.com/img/movie-poster-placeholder.png";
-    else
-      data.results[movieNumber].poster_path = imageApiUrl + tmp;
+      data.results[movieNumber].poster_path =
+        "https://cringemdb.com/img/movie-poster-placeholder.png";
+    else data.results[movieNumber].poster_path = imageApiUrl + tmp;
 
     return data.results[movieNumber];
   }
@@ -73,7 +71,5 @@ export class MovieService {
     return this.movieGenreModel.find({});
   }
 
-  async saveMovie(movieId: string) {
-    
-  }
+  async saveMovie(movieId: string) {}
 }
