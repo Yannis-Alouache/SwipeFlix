@@ -11,6 +11,7 @@ async function bootstrap() {
     rawBody: true,
     cors: true,
     bodyParser: true,
+    snapshot: true,
   });
 
   app.useStaticAssets(join(__dirname, "..", "src/public"));
@@ -22,18 +23,8 @@ async function bootstrap() {
   );
   hbs.registerPartials(join(__dirname, "..", "src/views/partials"));
   app.setViewEngine("hbs");
-  app.use(
-    session({
-      secret: `${process.env.SESSION_SECRET}`,
-      resave: false,
-      saveUninitialized: false,
-      cookie: {
-        secure: false,
-        maxAge: 24 * 60 * 60 * 1000, // 24 heures
-      },
-    }),
-  );
 
+  // TODO add paseportJs Authentication
   // TODO Add movie directly in fav without going through the swipe
   // TODO Add swipe history in user profile
   await app.listen(3000);
