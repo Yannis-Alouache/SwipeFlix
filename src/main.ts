@@ -3,7 +3,6 @@ import { AppModule } from "./app.module";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { join } from "path";
 import * as hbs from "hbs";
-import * as session from "express-session";
 import { ValidationPipe } from "@nestjs/common";
 
 async function bootstrap() {
@@ -14,7 +13,7 @@ async function bootstrap() {
     snapshot: true,
   });
 
-  app.useStaticAssets(join(__dirname, "..", "src/public"));
+  app.useStaticAssets(join(__dirname, "..", "src/views/assets"));
   app.setBaseViewsDir(join(__dirname, "..", "src/views"));
   app.useGlobalPipes(
     new ValidationPipe({
